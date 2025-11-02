@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.jpg" type="image/jpg">
+
+    <title>ELEVA SUSHI & WOK</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+
+            <div class="flex items-center">
+                <a href="#hero">
+                    <img src="images/logo.jpg" alt="Eleva Sushi & Wok Logo" class="h-10 md:h-12 w-auto">
+                </a>
+            </div>
+
+            <nav class="hidden md:flex space-x-8">
+                <a href="#hero" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Inicio</a>
+                <a href="#menu" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Menú</a>
+                <a href="#sobre-nosotros" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Sobre
+                    Nosotros</a>
+                <a href="#contacto" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Contacto</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button id="cart-button" class="relative text-gray-800 hover:text-red-600 transition-colors">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count-badge"
+                        class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                        0
+                    </span>
+                </button>
+
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <a href="#hero" class="block py-2 text-gray-700 hover:text-red-600">Inicio</a>
+            <a href="#menu" class="block py-2 text-gray-700 hover:text-red-600">Menú</a>
+            <a href="#sobre-nosotros" class="block py-2 text-gray-700 hover:text-red-600">Sobre Nosotros</a>
+            <a href="#contacto" class="block py-2 text-gray-700 hover:text-red-600">Contacto</a>
+        </div>
+    </header>
+
+    <section id="hero" class="relative h-screen w-full overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full z-0">
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover hidden md:block">
+                <source src="videos/wok-desktop.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover md:hidden">
+                <source src="videos/wok-movil.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+        </div>
+        <div class="relative z-20 h-full flex flex-col items-center justify-center text-center text-white p-4">
+            <h1 class="heading-font text-5xl md:text-7xl font-bold leading-tight mb-4">
+                ELEVA SUSHI & WOK
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl">
+                El arte del wok y la precisión del sushi en cada platillo.
+            </p>
+            <a href="#menu"
+                class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-bold transition-colors duration-300 transform hover:scale-105">
+                Explora Nuestro Menú
+            </a>
+        </div>
+    </section>
+
+    <section id="menu" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold mb-4">Nuestro Menú</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explora nuestra selección de platillos preparados al momento
+                    con los ingredientes más frescos.</p>
+            </div>
+            <div class="mobile-category-scroll md:flex flex-wrap justify-center mb-8">
+                <button class="category-btn active" data-category="entradas">Entradas</button>
+                <button class="category-btn" data-category="sopas">Sopas</button>
+                <button class="category-btn" data-category="platos_fuertes">Platos Fuertes</button>
+                <button class="category-btn" data-category="arroces">Arroces</button>
+                <button class="category-btn" data-category="rolls_calientes">Rolls Calientes</button>
+                <button class="category-btn" data-category="rolls_frios">Rolls Fríos</button>
+            </div>
+            <div id="menu-items" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mobile-menu-grid">
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-nosotros" class="py-16 lg:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="heading-font text-3xl md:text-4xl font-bold mb-6">
+                        Nuestra Pasión, Tu Experiencia
+                    </h2>
+                    <p class="text-gray-600 mb-6 text-lg">
+                        En <strong>ELEVA SUSHI & WOK</strong>, fusionamos dos artes culinarios: la precisión y frescura
+                        del sushi tradicional con la energía y el sabor vibrante del wok.
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        Nuestra misión es elevar tu experiencia gastronómica, utilizando solo ingredientes de la más
+                        alta calidad. Cada platillo es una promesa de sabor, preparado con dedicación por nuestros
+                        chefs.
+                    </p>
+                    <div class="space-y-5 mb-10">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-red-600 w-5 text-center mt-1 mr-4 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">Visítanos</h4>
+                                <p class="text-gray-600">Blvd. Agricultores 1431, Revolución, 80248 Culiacán Rosales,
+                                    Sin.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-red-600 w-5 text-center mt-1 mr-4 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">Horario</h4>
+                                <p class="text-gray-600">Lunes a Domingo: 01:00pm - 10:00pm</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Blvd.%20Agricultores%201431%2C%20Revoluci%C3%B3n%2C%2080248%20Culiac%C3%A1n%20Rosales%2C%20Sin."
+                        target="_blank" rel="noopener noreferrer"
+                        class="inline-block bg-red-600 text-white px-8 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 hover:bg-red-700">
+                        <i class="fas fa-directions mr-2"></i> Cómo Llegar
+                    </a>
+                </div>
+                <div class="map-container rounded-xl overflow-hidden shadow-2xl">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.751662999313!2d-107.4116518850025!3d24.80415308408018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86bcd741c8f473e1%3A0x8a927e80f0c0b89!2sBlvd.%20Agricultores%201431%2C%20Revoluci%C3%B3n%2C%2080248%20Culiac%C3%A1n%20Rosales%2C%20Sin.!5e0!3m2!1ses-419!2smx!4v1730521922000!5m2!1ses-419!2smx"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-16 lg:py-24 bg-white">
+        <div class="container mx-auto px-4">
+
+            <div class="text-center mb-12">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold mb-4">Ponte en Contacto</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">¿Tienes preguntas o comentarios? Envíanos un mensaje o
+                    visítanos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <h3 class="heading-font text-2xl font-bold mb-6">Información</h3>
+
+                    <div class="flex items-start mb-6">
+                        <i class="fas fa-map-marker-alt text-red-600 w-5 text-center mt-1 mr-4 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-lg">Dirección</h4>
+                            <p class="text-gray-600">Blvd. Agricultores 1431, Revolución, 80248 Culiacán Rosales, Sin.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start mb-6">
+                        <i class="fas fa-clock text-red-600 w-5 text-center mt-1 mr-4 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-lg">Horario</h4>
+                            <p class="text-gray-600">Lunes a Domingo: 01:00pm - 10:00pm</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <i class="fas fa-phone text-red-600 w-5 text-center mt-1 mr-4 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-lg">Teléfono (Pedidos)</h4>
+                            <a href="tel:6675142646" class="text-gray-600 hover:text-red-600 transition-colors">667 514
+                                2646</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
+                            <input type="text" name="name" id="name" required class="contact-input">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Correo
+                                Electrónico</label>
+                            <input type="email" name="email" id="email" required class="contact-input">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Mensaje</label>
+                            <textarea name="message" id="message" rows="5" required class="contact-input"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit"
+                                class="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-bold transition-colors duration-300 hover:bg-red-700">
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 ELEVA SUSHI & WOK. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="cart-modal" class="hidden fixed inset-0 z-50 overflow-auto">
+        <div id="cart-overlay" class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative w-full max-w-lg p-4 md:p-6 mx-auto my-16">
+            <div class="relative bg-white rounded-lg shadow-xl flex flex-col">
+                <div class="flex justify-between items-center p-4 border-b">
+                    <h3 class="heading-font text-2xl font-bold text-gray-800">Tu Pedido</h3>
+                    <button id="close-cart-btn" class="text-gray-500 hover:text-red-600 text-3xl">×</button>
+                </div>
+                <div id="cart-items-container" class="p-4 md:p-6 max-h-64 overflow-y-auto">
+                </div>
+                <div class="p-4 md:p-6 border-t bg-gray-50 rounded-b-lg">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-lg font-bold text-gray-800">Total:</span>
+                        <span id="cart-total" class="text-xl font-bold text-red-600">$0.00</span>
+                    </div>
+                    <button id="send-whatsapp-btn"
+                        class="w-full bg-green-500 text-white px-6 py-3 rounded-lg font-bold text-lg transition-colors duration-300 hover:bg-green-600 flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-3 text-xl"></i> Enviar Pedido por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rating-modal" class="hidden fixed inset-0 z-50 overflow-auto">
+        <div id="rating-overlay" class="absolute inset-0 bg-black opacity-50"></div>
+
+        <div class="relative w-full max-w-lg p-4 md:p-6 mx-auto my-16">
+            <div class="relative bg-white rounded-lg shadow-xl flex flex-col">
+
+                <div class="flex justify-between items-center p-4 border-b">
+                    <h3 class="heading-font text-2xl font-bold text-gray-800">Calificar Platillo</h3>
+                    <button id="close-rating-btn" class="text-gray-500 hover:text-red-600 text-3xl">&times;</button>
+                </div>
+
+                <div class="p-4 md:p-6">
+                    <h4 id="rating-item-name" class="text-xl font-bold text-center mb-6"></h4>
+
+                    <div class="flex justify-center items-center mb-6 rating-stars-container">
+                        <i class="fas fa-star text-3xl text-gray-300 cursor-pointer" data-value="1"></i>
+                        <i class="fas fa-star text-3xl text-gray-300 cursor-pointer" data-value="2"></i>
+                        <i class="fas fa-star text-3xl text-gray-300 cursor-pointer" data-value="3"></i>
+                        <i class="fas fa-star text-3xl text-gray-300 cursor-pointer" data-value="4"></i>
+                        <i class="fas fa-star text-3xl text-gray-300 cursor-pointer" data-value="5"></i>
+                    </div>
+
+                    <form id="rating-form">
+                        <input type="hidden" id="rating-item-id" value="0">
+                        <input type="hidden" id="rating-value" value="0">
+
+                        <div class="mb-4">
+                            <label for="rating-nombre" class="block text-sm font-medium text-gray-700 mb-2">Tu
+                                Nombre</label>
+                            <input type="text" id="rating-nombre" required class="contact-input">
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="rating-comentario"
+                                class="block text-sm font-medium text-gray-700 mb-2">Comentario (Opcional)</label>
+                            <textarea id="rating-comentario" rows="3" class="contact-input"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-bold transition-colors duration-300 hover:bg-red-700">
+                            Enviar Calificación
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js" defer></script>
+</body>
+
+</html>
