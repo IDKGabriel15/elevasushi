@@ -1,0 +1,400 @@
+/* style.css */
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.heading-font {
+  font-family: "Playfair Display", serif;
+}
+
+/* Estilos de las tarjetas del menú (hover) */
+.menu-card {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.menu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ===== ESTILOS DE BOTONES DE CATEGORÍA PERSONALIZADOS ===== */
+.category-btn {
+  /* Estilo inactivo: fondo oscuro, texto blanco */
+  background-color: #4a5568; /* gris-700 de Tailwind */
+  color: white;
+
+  /* Clases que estaban en el HTML, ahora en CSS */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0.5rem; /* rounded-lg */
+  margin: 0.25rem; /* m-1 */
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .category-btn {
+    margin: 0.5rem; /* md:m-2 */
+  }
+}
+
+/* Estilo hover para botones inactivos */
+.category-btn:hover {
+  background-color: #dc2626; /* rojo-600 de Tailwind */
+  color: white;
+}
+
+/* Estilo activo: fondo rojo, texto blanco */
+.category-btn.active {
+  background-color: #dc2626; /* rojo-600 de Tailwind */
+  color: white;
+}
+
+/* Placeholder para imágenes (si se usa como fallback) */
+.image-placeholder {
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+/* ===== ESTILOS RESPONSIVE (SIN CAMBIOS) ===== */
+@media (max-width: 768px) {
+  .mobile-menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Permite el scroll horizontal de categorías en móvil */
+  .mobile-category-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 8px;
+    /* Oculta la barra de scroll */
+    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .mobile-category-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari y Opera */
+  }
+
+  /* Asegura que los botones no se encojan en el scroll */
+  .mobile-category-scroll .category-btn {
+    flex-shrink: 0;
+  }
+}
+
+/* ============================================= */
+/* ===== ESTILOS PARA SECCIÓN SOBRE NOSOTROS ===== */
+/* ============================================= */
+
+/* Esto crea un contenedor de mapa responsivo 
+  que mantiene una proporción de 4:3 
+*/
+.map-container {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* 4:3 Aspect Ratio (height / width) */
+  height: 0;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ajuste para pantallas más pequeñas (opcional, pero recomendado) */
+@media (max-width: 1023px) {
+  .map-container {
+    /* En móvil, le damos una altura fija en lugar de aspect-ratio */
+    padding-top: 0;
+    height: 400px;
+  }
+}
+
+/* ============================================= */
+/* ===== ESTILOS PARA EL CARRITO DE COMPRAS ==== */
+/* ============================================= */
+
+/* Contenedor de items en el carrito (para el scroll) */
+#cart-items-container {
+  min-height: 100px; /* Evita que se colapse cuando está vacío */
+}
+
+/* Estilos para los botones de cantidad +/- */
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item-controls button {
+  width: 28px;
+  height: 28px;
+  background-color: #f3f4f6; /* gray-100 */
+  border-radius: 9999px; /* rounded-full */
+  font-weight: bold;
+  color: #4b5563; /* gray-600 */
+  transition: all 0.2s ease;
+}
+
+.cart-item-controls button:hover {
+  background-color: #dc2626; /* red-600 */
+  color: white;
+}
+
+.cart-item-controls span {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-weight: 500;
+  min-width: 40px; /* Asegura espacio para 2 dígitos */
+  text-align: center;
+}
+
+/* ============================================= */
+/* ===== ESTILOS PARA EL FORMULARIO DE CONTACTO ==== */
+/* ============================================= */
+
+.contact-input {
+  width: 100%;
+  border: 1px solid #d1d5db; /* gray-300 */
+  border-radius: 0.5rem; /* rounded-lg */
+  padding: 0.75rem 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+}
+
+.contact-input:focus {
+  outline: none;
+  border-color: #dc2626; /* red-600 */
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3); /* Sombra de foco roja */
+}
+
+/* ============================================= */
+/* ===== ESTILOS PARA CALIFICACIÓN (ESTRELLAS) ==== */
+/* ============================================= */
+
+/* Estrellas en la tarjeta del platillo */
+.rating-display {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem; /* text-sm */
+  color: #6b7280; /* gray-500 */
+}
+.rating-display .stars-outer {
+  position: relative;
+  display: inline-block;
+  color: #d1d5db; /* gray-300 */
+}
+.rating-display .stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #f59e0b; /* yellow-500 */
+}
+.rating-display .rating-count {
+  margin-left: 0.5rem; /* ml-2 */
+}
+
+/* Estrellas interactivas en el modal */
+.rating-stars-container {
+  gap: 0.5rem;
+}
+.rating-stars-container i:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+.rating-stars-container i.selected {
+  color: #f59e0b; /* yellow-500 */
+}
+
+/* ============================================= */
+/* ===== ESTILOS PARA MODAL DE EXTRAS ===== */
+/* ============================================= */
+
+.extras-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 0.5rem; /* rounded-lg */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.extras-item:hover {
+  background-color: #f9fafb; /* gray-50 */
+}
+
+.extras-item input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.75rem;
+  accent-color: #dc2626; /* red-600 */
+}
+
+.extras-item span {
+  font-weight: 500;
+  color: #374151; /* gray-700 */
+}
+
+.extras-item .extras-price {
+  margin-left: auto;
+  font-weight: 600;
+  color: #4b5563; /* gray-600 */
+}
+
+/* ============================================= */
+/* ===== ESTILOS PARA BOTÓN EDITAR EXTRAS ===== */
+/* ============================================= */
+
+.edit-extras-btn {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500;
+  color: #dc2626; /* red-600 */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding-top: 0.25rem; /* pt-1 */
+}
+
+.edit-extras-btn:hover {
+  text-decoration: underline;
+}
+
+/* ============================================= */
+/* ===== ESTILOS PARA CONTADOR EN TARJETA ===== */
+/* ============================================= */
+
+.item-quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.item-quantity-control button {
+  background-color: #dc2626; /* red-600 */
+  color: white;
+  border: none;
+  width: 32px; /* Más pequeño que el botón "Añadir" */
+  height: 32px;
+  border-radius: 50%; /* Círculo */
+  font-weight: bold;
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1;
+  transition: background-color 0.2s ease;
+}
+
+.item-quantity-control button:hover {
+  background-color: #b91c1c; /* red-700 */
+}
+
+.item-quantity-control button.btn-decrease-card {
+  background-color: #e5e7eb; /* gray-200 */
+  color: #374151; /* gray-700 */
+}
+.item-quantity-control button.btn-decrease-card:hover {
+  background-color: #d1d5db; /* gray-300 */
+}
+
+.item-quantity-control .quantity-display {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-weight: 600;
+  font-size: 1.125rem; /* text-lg */
+  min-width: 40px;
+  text-align: center;
+}
+
+/* ============================================= */
+/* ===== ESTILOS PARA TARJETAS DE PROMOCIÓN ==== */
+/* ============================================= */
+
+.promo-card {
+  background-color: white;
+  border-radius: 0.75rem; /* rounded-xl */
+  padding: 1.5rem; /* p-6 */
+  text-align: center;
+  /* Sombra sutil, igual que menu-card */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.promo-card:hover {
+  /* Efecto hover, igual que menu-card */
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.promo-card .promo-price {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700; /* bold */
+  color: #dc2626; /* text-red-600 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.promo-card .promo-add-btn {
+  background-color: #dc2626; /* bg-red-600 */
+  color: white;
+  padding: 0.5rem 1rem; /* px-4 py-2 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  width: 100%; /* w-full */
+}
+
+.promo-card .promo-add-btn:hover {
+  background-color: #b91c1c; /* hover:bg-red-700 */
+}
+
+/* ============================================= */
+/* ===== ESTILOS PARA TARJETAS DE PROMOCIÓN ==== */
+/* ============================================= */
+
+/* ... (tus estilos .promo-card existentes) ... */
+
+/* Estilos para el contenedor de la imagen */
+.promo-card .promo-image-container {
+  position: relative; /* Para posicionar el badge */
+  width: 100%;
+  height: 180px; /* Altura fija para todas las imágenes */
+  margin-bottom: 1rem;
+  overflow: hidden; /* Asegura que la imagen no se desborde */
+  border-radius: 0.5rem; /* rounded-lg */
+}
+
+.promo-card .promo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta la imagen para que llene el contenedor */
+  border-radius: 0.5rem; /* rounded-lg */
+}
+
+/* Estilos para el badge x2/x3/Paquete */
+.promo-card .promo-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #dc2626; /* red-600 */
+  color: white;
+  padding: 0.25rem 0.75rem; /* py-1 px-3 */
+  border-radius: 9999px; /* full rounded */
+  font-weight: bold;
+  font-size: 0.875rem; /* text-sm */
+  z-index: 10; /* Para que esté encima de la imagen */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para que destaque */
+}

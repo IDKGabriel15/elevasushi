@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/logo.jpg" type="image/jpg">
+    <link rel="icon" href="assets/images/logo.jpg" type="image/jpg">
 
     <title>ELEVA SUSHI & WOK</title>
 
@@ -13,8 +13,9 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="bg-white text-gray-800">
@@ -24,7 +25,7 @@
 
             <div class="flex items-center">
                 <a href="#hero">
-                    <img src="images/logo.jpg" alt="Eleva Sushi & Wok Logo" class="h-10 md:h-12 w-auto">
+                    <img src="assets/images/logo.jpg" alt="Eleva Sushi & Wok Logo" class="h-10 md:h-12 w-auto">
                 </a>
             </div>
 
@@ -62,10 +63,10 @@
     <section id="hero" class="relative h-screen w-full overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full z-0">
             <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover hidden md:block">
-                <source src="videos/wok-desktop.mp4" type="video/mp4">
+                <source src="assets/videos/wok-desktop.mp4" type="video/mp4">
             </video>
             <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover md:hidden">
-                <source src="videos/wok-movil.mp4" type="video/mp4">
+                <source src="assets/videos/wok-movil.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
         </div>
@@ -83,6 +84,69 @@
         </div>
     </section>
 
+    <section id="promociones" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold mb-4">Nuestras Promociones</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">¡Aprovecha nuestros paquetes especiales!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div class="promo-card">
+                    <div class="promo-image-container">
+                        <img src="assets/images/MarYTierra.jpg" alt="Mar y Tierra" class="promo-image">
+                        <span class="promo-badge">x2</span>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">2 Mar y Tierra</h3>
+                    <p class="promo-price">$150.00</p>
+                    <button class="promo-add-btn" data-id="p1" data-nombre="Promo 2 Mar y Tierra" data-precio="150.00">
+                        Añadir al Pedido
+                    </button>
+                </div>
+
+                <div class="promo-card">
+                    <div class="promo-image-container">
+                        <img src="assets/images/TresQuesos.jpg" alt="Tres Quesos" class="promo-image">
+                        <span class="promo-badge">x2</span>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">2 Tres Quesos</h3>
+                    <p class="promo-price">$170.00</p>
+                    <button class="promo-add-btn" data-id="p2" data-nombre="Promo 2 Tres Quesos" data-precio="170.00">
+                        Añadir al Pedido
+                    </button>
+                </div>
+
+                <div class="promo-card">
+                    <div class="promo-image-container">
+                        <img src="assets/images/ChickenChesse.jpg" alt="Chiken Chesse" class="promo-image">
+                        <span class="promo-badge">x3</span>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">3 Chiken Chesse</h3>
+                    <p class="promo-price">$210.00</p>
+                    <button class="promo-add-btn" data-id="p3" data-nombre="Promo 3 Chiken Chesse" data-precio="210.00">
+                        Añadir al Pedido
+                    </button>
+                </div>
+
+                <div class="promo-card">
+                    <div class="promo-image-container">
+                        <img src="assets/images/ArrozEspecial.jpg" alt="Paquete Arroz" class="promo-image">
+                        <span class="promo-badge">Paquete</span>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Paquete Litros</h3>
+                    <p class="text-gray-600 text-sm mb-2">1lt Arroz Frito + 1lt Guiso + 1lt Té</p>
+                    <p class="promo-price">$230.00</p>
+                    <button class="promo-add-btn" data-id="p4" data-nombre="Promo Paquete Litros" data-precio="230.00">
+                        Añadir al Pedido
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
     <section id="menu" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -97,6 +161,7 @@
                 <button class="category-btn" data-category="arroces">Arroces</button>
                 <button class="category-btn" data-category="rolls_calientes">Rolls Calientes</button>
                 <button class="category-btn" data-category="rolls_frios">Rolls Fríos</button>
+                <button class="category-btn" data-category="bebidas">Bebidas</button>
             </div>
             <div id="menu-items" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mobile-menu-grid">
             </div>
@@ -223,6 +288,14 @@
     <footer class="bg-black text-white py-12">
         <div class="container mx-auto px-4 text-center">
             <p>© 2025 ELEVA SUSHI & WOK. Todos los derechos reservados.</p>
+
+            <p class="mt-4 text-sm text-gray-300">
+                Diseñado y desarrollado por
+                <!--https://www.gabriel-roman.site-->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="font-medium text-white hover:underline">
+                    @subeweb
+                </a>
+            </p>
         </div>
     </footer>
 
@@ -298,7 +371,39 @@
         </div>
     </div>
 
-    <script src="app.js" defer></script>
+    <div id="extras-modal" class="hidden fixed inset-0 z-50 overflow-auto">
+        <div id="extras-overlay" class="absolute inset-0 bg-black opacity-50"></div>
+
+        <div class="relative w-full max-w-lg p-4 md:p-6 mx-auto my-16">
+            <div class="relative bg-white rounded-lg shadow-xl flex flex-col">
+
+                <div class="flex justify-between items-center p-4 border-b">
+                    <h3 class="heading-font text-2xl font-bold text-gray-800">Añadir Extras</h3>
+                    <button id="close-extras-btn" class="text-gray-500 hover:text-red-600 text-3xl">&times;</button>
+                </div>
+
+                <div class="p-4 md:p-6">
+                    <h4 id="extras-item-name" class="text-xl font-bold text-center mb-6">Nombre del Platillo</h4>
+
+                    <div id="extras-list-container" class="space-y-3 max-h-64 overflow-y-auto mb-6">
+                    </div>
+
+                    <div class="pt-4 border-t">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold">Total del Item:</span>
+                            <span id="extras-item-total" class="text-xl font-bold text-red-600">$0.00</span>
+                        </div>
+                        <button id="add-to-cart-from-modal-btn"
+                            class="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-bold transition-colors duration-300 hover:bg-red-700">
+                            Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js" type="module" defer></script>
 </body>
 
 </html>
